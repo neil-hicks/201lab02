@@ -1,9 +1,9 @@
-let name = "";
+let userName = "";
 
 function getName() {
     let tempName = prompt("Hi there! Please tell me your name!");
     if (tempName != "") {
-        name = tempName;
+        userName = tempName;
         document.getElementById("welcome").innerHTML =
             "Welcome, " + tempName + "!";
     } else {
@@ -46,9 +46,10 @@ for (i = 0; i < questions.length; i++) {
             if  (response.toLowerCase() === answer) {
                 //console.log("Correct!");
                 alert("You are correct!");
-                document.getElementById("").innerHTML =
-                "You answered '" + question[i] + "', correct!";
-                score += 1;
+                // document.getElementById("").innerHTML =
+                // "You answered '" + question[i] + "', correct!";
+                document.getElementById(q[i + 1]).innerHTML =
+                "Question " + [i + 1] +": You answered '" + response + "', which isn't even a real answer??";score += 1;
                 correct = true;
                 break;
             }
@@ -59,7 +60,7 @@ for (i = 0; i < questions.length; i++) {
     }       
 }
 
-    switch (ques1.toLowerCase()){
+/*    switch (ques1.toLowerCase()){
         case "yes":
             
         case "no":
@@ -166,43 +167,47 @@ for (i = 0; i < questions.length; i++) {
             document.getElementById("q5").innerHTML =
             "Question 5: You answered '" + ques5 + "', which isn't even a real answer??";
     }
-
+*/
     alert("Okay, we're no longer answering with 'Yes' or 'No' here.")
 
 // Question 6
-    let attempts = 4;
+    
     let numGuess = 24;
-    let ques6 = parseInt(prompt("What number am I thinking of?"));
-    while (ques6 !== numGuess && attempts > 1) {
-        if (ques6 < numGuess) {
-            attempts -= 1;
+    for (let attempts = 4; attempts > 0; attempts--) {
+        let ques6 = parseInt(prompt("What number am I thinking of?"));
+    
+        if (ques6 === numGuess) {
+            score += 1;
+            alert("Correct! That's the number I was thinking of!");
+            document.getElementById("q6").innerHTML =
+            "Question 6: You answered '" + ques6 + "', correct!";
+        } else if (ques6 < numGuess) {
             alert("You're too low. Think higher! You have " + attempts + " attempts left.");
         } else {
-            attempts -= 1;
             alert("You're too high. Think lower! You have " + attempts + " attempts left.");
         }
-        ques6 = parseInt(prompt("What number am I thinking of?"));
+        
+        // ques6 = parseInt(prompt("What number am I thinking of?"));
     }
-    if (ques6 === numGuess) {
-        score += 1;
-        alert("Correct! That's the number I was thinking of!");
-        document.getElementById("q6").innerHTML =
-        "Question 6: You answered '" + ques6 + "', correct!";
-    } else {
-        alert("Sorry, you're out of guesses. The number I was thinking of was " + numGuess + ".");
-        document.getElementById("q6").innerHTML =
-        "Question 6: You answered '" + ques6 + "', which is not correct :(";
-    }
-
+    // if (ques6 === numGuess) {
+        
+    // } else {
+    //     alert("Sorry, you're out of guesses. The number I was thinking of was " + numGuess + ".");
+    //     document.getElementById("q6").innerHTML =
+    //     "Question 6: You answered '" + ques6 + "', which is not correct :(";
+    // }
+}
 // Question 7
     let musicAttempts = 6;
     let favBands = ['Rush', 'Electric Light Orchestra', 'Pendulum', 'Genesis', 'TWRP', 'Casiopea', 'Styx', 'Breaking Benjamin', 'Starcadian', 'Gemini Syndrome'];
-    let ques7 = prompt("Who is one of my favorite artists?");
+    let ques7 = prompt("Who is one of my favorite artists?").toLowerCase();
+    console.log(ques7);
+    console.log(typeof(ques7));
     let isFav = false;
 
     while (musicAttempts > 0) {
         for (let i = 0; i < favBands.length; i++) {
-            if(ques7.toLowerCase() === favBands[i].toLowerCase()) {
+            if(ques7 === favBands[i].toLowerCase()) {
                 isFav = true;
             }
         }
@@ -225,5 +230,4 @@ for (i = 0; i < questions.length; i++) {
 
     alert("Thanks for playing! You got " + score + "/7!");
     document.getElementById("score").innerHTML =
-    "Alright, you got " + score + "/7! Thanks for playing " + name + "!";
-}
+    "Alright, you got " + score + "/7! Thanks for playing " + userName + "!";
