@@ -73,7 +73,7 @@ button{
     overflow: hidden;
 }
 
-.left, .right{
+.left, .center, .right{
     float: left;
     width: 25%;
     margin-right: 6.25%;
@@ -83,13 +83,35 @@ button{
     margin-left: 6.25%;
 }
 
-.left p, .right p {
+.left p, .center p, .right p {
     width: 100%;
     height: 100%;
     margin-bottom: 25px;
     text-align: center;
-    color: #222;
-    text-shadow: 3px 3px 3px #bfbfbf;
+}
+
+.row li {
+    width: 40%;
+    text-align: center;
+    color: #bfbfbf;
+    margin: 0px 5% 15px 5%;
+    float: left;
+    overflow: hidden;
+}
+
+#top1{
+    color: goldenrod;
+    font-size: 1.75em;
+}
+
+#top2{
+    color: silver;
+    font-size: 1.5em;
+}
+
+#top3{
+    color: #916531;
+    font-size: 1.25em;
 }
 
 .questions p{
