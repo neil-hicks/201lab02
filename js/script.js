@@ -21,19 +21,51 @@ function gameStart() {
     alert("Welcome to my game of seven questions! Please answer with either a 'Yes' or a 'No' for each question.")
 
 // Question 1
-    let ques1 = prompt("Am I old enough to vote?")
+
+let questions = [
+    'Am I old enought to vote?',
+    'Have I completed a college degree?',
+    'Was I studying Underwater Basket Weaving in college?',
+    'Was my favorite job that I\'ve worked at a place to play video games?',
+    'Am I currently learning new things with Code Fellows?',
+];
+
+let answers = [
+    ['yes', 'y'],
+    ['no', 'n'],
+    ['no', 'n'],
+    ['yes', 'y'],
+    ['yes', 'y'] 
+];
+
+for (i = 0; i < questions.length; i++) {
+    let response = prompt(questions[i]);
+    let correct = false;
+    if (typeof(answers[i]) !== 'string') {
+        for (let answer of answers[i]) {
+            if  (response.toLowerCase() === answer) {
+                //console.log("Correct!");
+                alert("You are correct!");
+                document.getElementById("").innerHTML =
+                "You answered '" + question[i] + "', correct!";
+                score += 1;
+                correct = true;
+                break;
+            }
+        }
+    }
+    if (correct === false) {
+        alert("Sorry, that is not correct");
+    }       
+}
+
     switch (ques1.toLowerCase()){
         case "yes":
-            //console.log("Correct!");
-            alert("You are correct!");
-            document.getElementById("q1").innerHTML =
-            "Question 1: You answered '" + ques1 + "', correct!";
-            score += 1;
-            break;
+            
         case "no":
             //console.log("Sorry, that is not correct.");
             alert("Sorry, that is not correct");
-            document.getElementById("q1").innerHTML =
+            document.getElementById(q[i]).innerHTML =
             "Question 1: You answered '" + ques1 + "', which is not correct :(";
             break;
         default:
